@@ -38,7 +38,7 @@ public class Finder {
     }
 
     private static Point up(Point p) {
-        return new Point(p.x - 1, p.y);
+        return new Point(p.x - 1,p. y);
     }
 
     private static Point down(Point p) {
@@ -79,7 +79,7 @@ public class Finder {
         }
     }
 
-    private static enum MazeField {
+    private enum MazeField {
         EMPTY, WALL, BURNED
     }
 }
