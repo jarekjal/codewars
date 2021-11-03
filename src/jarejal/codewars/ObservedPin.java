@@ -36,9 +36,9 @@ public class ObservedPin {
         List<String> tmp = new ArrayList<>();
         int position = cnt + 1;
         if (position >= observed.length()) return;
-        results.forEach(d -> {
+        results.forEach(digits -> {
             digitToDigitWithNeighbours.get(Character.toString(observed.charAt(position)))
-                    .forEach(next -> tmp.add(d + next));
+                    .forEach(nextDigit -> tmp.add(digits + nextDigit));
         });
         results = tmp;
         cnt++;
