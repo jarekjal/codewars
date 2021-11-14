@@ -31,7 +31,7 @@ public class Runes {
                 .filter(d -> existInOperands(d, List.of(arguments[0], arguments[1], result)))
                 .collect(Collectors.toSet());
         digits.removeAll(digitsExistingInExpresion);
-        if (isMoreThanOneWildcardOnBeginningOf(List.of(arguments[0], arguments[1], result))) {
+        if (isPossibleLeadingZeroOrMinusZero(List.of(arguments[0], arguments[1], result))) {
             digits.remove("0");
         }
         int answer = -1;
@@ -67,7 +67,7 @@ public class Runes {
         return outcome;
     }
 
-    private static boolean isMoreThanOneWildcardOnBeginningOf(List<String> operands) {
+    private static boolean isPossibleLeadingZeroOrMinusZero(List<String> operands) {
         return operands.stream().anyMatch(o -> (o.startsWith("?") && o.length() > 1) || o.startsWith("-?"));
     }
 
@@ -82,7 +82,7 @@ public class Runes {
         } else {
             operation = Operation.MINUS;
             if (expressionAndResult[0].startsWith("-")) {
-                expressionAndResult[0] = expressionAndResult[0].replace("-", "!");
+                expressionAndResult[0] = expressionAndResult[0].replaceFirst("-", "!");
             }
         }
         arguments = expressionAndResult[0].split(operation.operator);

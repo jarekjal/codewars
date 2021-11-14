@@ -16,6 +16,7 @@ public class RunesTest {
         assertEquals("Answer for expression '?*11=??' ", 2, Runes.solveExpression("?*11=??"));
         assertEquals("Answer for expression '??*1=??' ", 2, Runes.solveExpression("??*1=??"));
         assertEquals("Answer for expression '??+??=??' ", -1, Runes.solveExpression("??+??=??"));
+        assertEquals("Answer for expression '-?-2=-6' ", 4, Runes.solveExpression("-?-2=-6"));
     }
 
 }
