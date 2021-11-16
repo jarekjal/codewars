@@ -1,6 +1,5 @@
 package jarekjal.codewars;
 
-import jarejal.codewars.FactDecomp;
 import org.junit.Test;
 
 import static org.junit.Assert.assertEquals;

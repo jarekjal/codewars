@@ -1,6 +1,5 @@
 package jarekjal.codewars;
 
-import jarejal.codewars.PangramChecker;
 import org.junit.Test;
 
 import static org.junit.Assert.assertEquals;

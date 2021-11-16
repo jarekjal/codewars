@@ -1,7 +1,6 @@
 package jarekjal.codewars;
 
 
-import jarejal.codewars.TenMinWalk;
 import org.junit.Test;
 
 import static org.junit.Assert.*;

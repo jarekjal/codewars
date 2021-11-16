@@ -1,6 +1,5 @@
 package jarekjal.codewars;
 
-import jarejal.codewars.FindOdd;
 import org.junit.Assert;
 import org.junit.Test;
         import static org.junit.Assert.assertEquals;

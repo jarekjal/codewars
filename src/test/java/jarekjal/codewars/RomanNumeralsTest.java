@@ -1,6 +1,5 @@
 package jarekjal.codewars;
 
-import jarejal.codewars.RomanNumerals;
 import org.junit.Test;
 
 import static org.hamcrest.CoreMatchers.is;

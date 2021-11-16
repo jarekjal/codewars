@@ -1,6 +1,5 @@
 package jarekjal.codewars;
 
-import jarejal.codewars.Hamming;
 import org.junit.Assert;
 import org.junit.Test;
 

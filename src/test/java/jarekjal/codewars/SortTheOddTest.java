@@ -1,7 +1,6 @@
 package jarekjal.codewars;
 
 
-import jarejal.codewars.SortTheOdd;
 import org.junit.Assert;
 import org.junit.Test;
 

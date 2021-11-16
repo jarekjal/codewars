@@ -1,6 +1,5 @@
 package jarekjal.codewars;
 
-import jarejal.codewars.RectangleRotation;
 import org.junit.Assert;
 import org.junit.Test;
 

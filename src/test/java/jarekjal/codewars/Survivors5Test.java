@@ -1,6 +1,5 @@
 package jarekjal.codewars;
 
-import jarejal.codewars.Survivors5;
 import org.junit.Test;
 
 import java.util.Arrays;

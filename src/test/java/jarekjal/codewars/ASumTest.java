@@ -2,7 +2,6 @@ package jarekjal.codewars;
 
 import static org.junit.Assert.*;
 
-import jarejal.codewars.ASum;
 import org.junit.Assert;
 import org.junit.Test;
 

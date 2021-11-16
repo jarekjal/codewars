@@ -1,6 +1,5 @@
 package jarekjal.codewars;
 
-import jarejal.codewars.RangeExtraction;
 import org.junit.Assert;
 import org.junit.Test;
 

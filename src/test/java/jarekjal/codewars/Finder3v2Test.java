@@ -1,7 +1,7 @@
 
 package jarekjal.codewars;
 
-import jarejal.codewars.Finder3v2;
+import junit.framework.TestCase;
 import org.junit.Assert;
 import org.junit.Test;
 
