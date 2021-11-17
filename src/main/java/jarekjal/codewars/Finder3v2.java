@@ -9,40 +9,34 @@ public class Finder3v2 {
     private static int[][] gameField;
     private static int gameFieldSize;
     private static Map<Set<Point>, Integer> edgeToCost;
-    private static Map<Integer, Set<Integer>> adjacencyMap;
 
     public static int pathFinder(String maze) {
         createGameField(maze);
         if (gameFieldSize == 0) throw new IllegalArgumentException();
         if (gameFieldSize == 1) return 0;
         buildMaps();
-        int result = dijkstra();
 
-        return result;
+        return dijkstra();
     }
 
     private static int dijkstra() {
         int[] d = new int[gameFieldSize * gameFieldSize];
-//        int[] p = new int[gameFieldSize * gameFieldSize];
-//        Set<Integer> s = new HashSet<>();
         Set<Integer> q = new HashSet<>();
         for (int i = 0; i < gameFieldSize * gameFieldSize; i++) {
             q.add(i);
         }
         Arrays.fill(d, Integer.MAX_VALUE);
-//        Arrays.fill(p, -1);
         d[0] = 0;
         while (!q.isEmpty()) {
             int indexOfNodeWithMinimalCost = getIndexOfNodeWithMinimalCost(d, q);
             q.remove(indexOfNodeWithMinimalCost);
-//            s.add(indexOfNodeWithMinimalCost);
             getNeighboursOf(nodeForNumber(indexOfNodeWithMinimalCost))
                     .forEach(neighbour -> {
-                        if (q.contains(nodeNumberOf(neighbour))) {
+                        int nodeNumber = nodeNumberOf(neighbour);
+                        if (q.contains(nodeNumber)) {
                             int cost = edgeToCost.get(Set.of(nodeForNumber(indexOfNodeWithMinimalCost), neighbour));
-                            if (d[nodeNumberOf(neighbour)] > d[indexOfNodeWithMinimalCost] + cost) {
-                                d[nodeNumberOf(neighbour)] = d[indexOfNodeWithMinimalCost] + cost;
-//                                p[nodeNumberOf(neighbour)] = indexOfNodeWithMinimalCost;
+                            if (d[nodeNumber] > d[indexOfNodeWithMinimalCost] + cost) {
+                                d[nodeNumber] = d[indexOfNodeWithMinimalCost] + cost;
                             }
                         }
                     });
@@ -53,8 +47,8 @@ public class Finder3v2 {
     private static int getIndexOfNodeWithMinimalCost(int[] array, Set<Integer> q) {
         int min = Integer.MAX_VALUE;
         int minIndex = 0;
-        for (int i = 0; i < array.length; i++) {
-            if (q.contains(i) && array[i] < min) {
+        for (int i : q) {
+            if (array[i] < min) {
                 min = array[i];
                 minIndex = i;
             }
@@ -64,20 +58,13 @@ public class Finder3v2 {
 
     private static void buildMaps() {
         edgeToCost = new HashMap<>();
-        adjacencyMap = new HashMap<>();
         for (int row = 0; row < gameFieldSize; row++) {
             for (int field = 0; field < gameFieldSize; field++) {
                 Point point = new Point(row, field);
                 Set<Point> neighbours = getNeighboursOf(point);
                 updateEdgeToCostMap(point, neighbours);
-                updateAdjacencyMap(point, neighbours);
             }
         }
-    }
-
-    private static void updateAdjacencyMap(Point point, Set<Point> neighbours) {
-        adjacencyMap
-                .put(nodeNumberOf(point), neighbours.stream().map(Finder3v2::nodeNumberOf).collect(Collectors.toSet()));
     }
 
     private static void updateEdgeToCostMap(Point point, Set<Point> neighbours) {
